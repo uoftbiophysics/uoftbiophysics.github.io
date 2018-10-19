@@ -16,8 +16,8 @@ layout: page
 
 ### Projects
 Table of proposed projects can be found [here](https://docs.google.com/spreadsheets/d/1g5YJG3eM5Nce51zA7Vuy-tRkN3CzBXFOp02jR28Tjas/edit#gid=463939956)  
-Join one, or propose your own!
-Also check out the project slack channels, "project_NAME"
+Join one, or propose your own!  
+Also check out the project slack channels for project-specific discussion
 
 ### General Resources
 - [2018 review](https://arxiv.org/pdf/1803.08823.pdf) of machine learning "for Physicists" by Mehta et al.
