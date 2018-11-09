@@ -25,6 +25,7 @@ Also check out the project slack channels for project-specific discussion
 - [SciNet course](https://support.scinet.utoronto.ca/education/go.php/363)
 - [Visualization of common NN architectures](http://www.asimovinstitute.org/neural-network-zoo/)
 - Large, updated list of resources on the [ML subreddit](https://www.reddit.com/r/MachineLearning/wiki/index)
+- Broad coverage textbook: [Elements of Statistical Learning](https://web.stanford.edu/~hastie/Papers/ESLII.pdf)
 
 ### Software Resources
 Installing Keras: [https://keras.io/#installation](https://keras.io/#installation)
