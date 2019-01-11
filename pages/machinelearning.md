@@ -10,7 +10,7 @@ layout: page
 ### Supervised learning topics
 [Table of topics](https://docs.google.com/spreadsheets/d/1g5YJG3eM5Nce51zA7Vuy-tRkN3CzBXFOp02jR28Tjas/edit#gid=367275259) 
 - Add your name to any you are interested in presenting (jupyter notebook and/or powerpoint)
-- Upload it to [machinelearning/guides](https://github.com/uoftbiophysics/machinelearning/blob/master/guides/)
+- Upload it to [machinelearning/guides/unsupervised](https://github.com/uoftbiophysics/machinelearning/tree/master/guides/supervised)
 - See [machinelearning/guides/README.md](https://github.com/uoftbiophysics/machinelearning/blob/master/guides/README.md)
 
 ### Projects
