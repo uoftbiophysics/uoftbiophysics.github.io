@@ -8,7 +8,7 @@ layout: page
 [Schedule](https://docs.google.com/spreadsheets/u/1/d/1g5YJG3eM5Nce51zA7Vuy-tRkN3CzBXFOp02jR28Tjas/edit?usp=drive_open&ouid=107552247492071363708) - Fridays at 1:00PM in MP 505
 
 ### Supervised learning topics
-[Table of techniques](https://docs.google.com/spreadsheets/d/1g5YJG3eM5Nce51zA7Vuy-tRkN3CzBXFOp02jR28Tjas/edit#gid=1433659223) 
+[Table of topics](https://docs.google.com/spreadsheets/d/1g5YJG3eM5Nce51zA7Vuy-tRkN3CzBXFOp02jR28Tjas/edit#gid=367275259) 
 - Add your name to any you are interested in presenting (jupyter notebook and/or powerpoint)
 - Upload it to [machinelearning/guides](https://github.com/uoftbiophysics/machinelearning/blob/master/guides/)
 - See [machinelearning/guides/README.md](https://github.com/uoftbiophysics/machinelearning/blob/master/guides/README.md)
