@@ -5,12 +5,11 @@ layout: page
 ---
 
 ### Meetings 
-[Schedule](https://docs.google.com/spreadsheets/u/1/d/1g5YJG3eM5Nce51zA7Vuy-tRkN3CzBXFOp02jR28Tjas/edit?usp=drive_open&ouid=107552247492071363708) - Fridays at 12:30PM in MP 505
+[Schedule](https://docs.google.com/spreadsheets/u/1/d/1g5YJG3eM5Nce51zA7Vuy-tRkN3CzBXFOp02jR28Tjas/edit?usp=drive_open&ouid=107552247492071363708) - Fridays at 1:00PM in MP 505
 
-### Unsupervised learning techniques
+### Supervised learning topics
 [Table of techniques](https://docs.google.com/spreadsheets/d/1g5YJG3eM5Nce51zA7Vuy-tRkN3CzBXFOp02jR28Tjas/edit#gid=1433659223) 
-- Add your name to any you are interested in presenting
-- Goal: A jupyter notebook with ~15 minute of content for each topic, which we can then refer to.
+- Add your name to any you are interested in presenting (jupyter notebook and/or powerpoint)
 - Upload it to [machinelearning/guides](https://github.com/uoftbiophysics/machinelearning/blob/master/guides/)
 - See [machinelearning/guides/README.md](https://github.com/uoftbiophysics/machinelearning/blob/master/guides/README.md)
 
@@ -28,4 +27,5 @@ Also check out the project slack channels for project-specific discussion
 - Broad coverage textbook: [Elements of Statistical Learning](https://web.stanford.edu/~hastie/Papers/ESLII.pdf)
 
 ### Software Resources
-Installing Keras: [https://keras.io/#installation](https://keras.io/#installation)
+Installing Keras: [https://keras.io/#installation](https://keras.io/#installation)  
+We will also be using TensorFlow directly, and PyTorch  
