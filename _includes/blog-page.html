@@ -1,0 +1,20 @@
+<section id="blog">
+    <div class="container">
+      <div class="row">
+          <div class="col-lg-12 text-center">
+              <h2 class="section-heading">Blog</h2>
+              <h3 class="section-subheading text-muted">"The more that you read, the more that you will know. The more that you learn, the more places you'll go." - <i>Dr. Seus</i></h3>
+          </div>
+      </div>
+      <div class="card-columns">
+          {% comment %}
+          Sort the blogs by date, putting those without dates last
+          {% endcomment %}
+          {% assign blogs_by_date = site.blog | sort: 'last-updated', 'first' %}
+          {% assign blogs_by_date = blogs_by_date | reverse %}
+          {% for b in blogs_by_date %}
+              {% include blog-card.html blog=b %}
+          {% endfor %}
+      </div>
+    </div>
+</section>
