@@ -7,7 +7,7 @@
 
 /* Ensure body is below navbar */
 body.no-header {
- padding-top: 0px;
+ padding-top: 90px;
 }
 body.no-header nav.navbar {
  background-color: #222;
@@ -27,7 +27,7 @@ body.no-header nav.navbar {
 
 .site-logo {
   float: left;
-  width: 60px;
+  width: 30px;
   height: auto;
   margin-right: 15px;
 
@@ -77,9 +77,11 @@ footer {
   width: 100%;
   justify-content: center;
 }
-
+.navbar{
+  margin-bottom: 0px
+}
 .below-nav {
-  height: 175px;
+  /*height: 200px;*/
   width: 100%;
   bottom: 0;
   display: flex;
@@ -94,4 +96,11 @@ footer {
 
 .nav-link{
   font-size : 1.00em;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }

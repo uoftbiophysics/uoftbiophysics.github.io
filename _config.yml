@@ -3,7 +3,7 @@
 
 #Step 1: give your study group a name and a short description,
 #and choose a language from the options in the _data directory:
-title: Biophysics at the University of Toronto
+title: Theoretical Biophysics
 description: "A group of physicists at the University of Toronto unraveling the natural world around us."
 language: en
 
@@ -19,9 +19,9 @@ language: en
 # None of these things need to be changed - but feel free!
 
 titleBackground: "https://s3-us-west-2.amazonaws.com/webmaker-kits/learning%402x.jpg"
-headlineSmall: "Welcome to our blog!"
-headlineMain: "Unveiling the physical laws of nature"
-logo: "img/logos/logo.png"
+headlineSmall: "Welcome to our website for science advances!"
+headlineMain: "Theoretical Biophysics at the University of Toronto"
+logo: "img/logos/UofT-logo.png"
 
 # Setup Google Calendar
 # Usage:
