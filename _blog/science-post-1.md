@@ -1,5 +1,5 @@
 ---
-title: Forking Review Me Please!
+title: Example post
 subtitle: Simplifying the posting and review of blog posts for everyone
 #status: inactive #active if you want it on the frontpage
 
@@ -10,13 +10,10 @@ description: |
 people: # add peope that are involved in this project
   - jeremy
   - matt
-  - madeleine
 
-layout: page # do not change this
-image: 'posts/forking/nice-fork.png'
-#link:
-no-link: false # if you don't want it's own webpage
-last-updated: 2021-8-2
+layout: blog # do not change this
+image: #'posts/forking/nice-fork.png'
+last-updated: 2021-8-1
 # do NOT add 0 (such as 06 for June). Will break everything lol
 # take out the underscore in the name.
 ---
@@ -38,5 +35,8 @@ To create a project, just create a markdown file in the `_projects` folder. Here
 Links to github can be added like
 [this](https://github.com/hlml-toronto/).
 
-Adding images is as simple as using an html command for images, such as this: <img src="/img/posts/forking/nice-fork.jpg" alt="idp" width="400px" align="right" style="padding:5px;">
+Adding images is as simple as using an html command for images, such as this:
+
+<img src="/img/posts/forking/nice-fork.jpg" alt="idp" width="400px" align="center" style="padding:5px;">
+
 Try to keep a nice hierarchy of images in our img folder.

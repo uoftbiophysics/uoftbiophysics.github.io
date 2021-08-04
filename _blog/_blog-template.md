@@ -1,6 +1,6 @@
 ---
-title: Blog with a Longer Title
-subtitle: And a subtitle
+title: Here's an example of what a post looks like
+subtitle: Simplifying the posting and review of blog posts for everyone
 #status: inactive #active if you want it on the frontpage
 
 description: |
@@ -8,16 +8,12 @@ description: |
   Setting the `no-link` property means that there's no link.
 
 people: # add peope that are involved in this project
-  - storm
-  - profx
-  - grad-b
-  - scott
-  - wolverine
+  - jeremy
+  - matt
 
-layout: page # do not change this
-#link:
-no-link: true # if you don't want it's own webpage
-last-updated: 1989-10-9
+layout: blog # do not change this
+image: #'posts/forking/nice-fork.png'
+last-updated: 2021-8-1
 # do NOT add 0 (such as 06 for June). Will break everything lol
 # take out the underscore in the name.
 ---
@@ -40,5 +36,5 @@ To create a project, just create a markdown file in the `_projects` folder. Here
 Links to github can be added like
 [this](https://github.com/hlml-toronto/).
 
-Adding images is as simple as using an html command for images, such as this: <img src="/img/projects/undiagnosed-1/methodologies.PNG" alt="idp" width="400px" align="right" style="padding:5px;">
+Adding images is as simple as using an html command for images, such as this: <img src="/img/posts/forking/nice-fork.jpg" alt="idp" width="400px" align="right" style="padding:5px;">
 Try to keep a nice hierarchy of images in our img folder.
