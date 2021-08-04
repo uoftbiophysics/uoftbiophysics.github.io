@@ -1,0 +1,127 @@
+I"xQ<h3 id="abstract">Abstract</h3>
+<p>We took part in the Undiagnosed-1 SVAI Hackathon June 7-9, 2019. This was a collaborative, patient-focused genomics research case.
+Our goal was to combine the patient’s extensive genetic sequencing data and clinical notes with statistical machcine learning to
+produce a diagnosis. Our approach involved coarse-graining the patient data and computing a variety of correlation metrics with
+reference databases to produce a ranked list of potential diagnoses.</p>
+
+<h3 id="data-preparation">Data Preparation</h3>
+<p>The genetic sequencing data was provided in both raw reads (.bam files) and with genetic mutations identified by location (.vcf files).
+However, we wanted to correlate genetic mutations with potential diseases and so we first coarse-grained the genetic data by automatically
+annotating a reference genome with the .vcf files to produce a list of genes which had mutations (ie. a binary patient data vector).</p>
+
+<p><img src="/img/projects/undiagnosed-1/methodologies.PNG" alt="idp" width="400px" align="right" style="padding:5px;" /></p>
+
+<p>The patient’s clinical notes were provided as a series of scanned documents, which required us to read through everything provided and
+produce a summary table of symptoms, times, tests performed, treatments attempted, etc. We eventually standardized this data by converting
+all symptoms to MeSH terminology and produced a patient symptom data vector (again, a binary vector with 1 indicating symptom was present,
+0 indicating symptom was absent).</p>
+
+<p>We found several reference databases which mapped symptoms to disease, giving a larger score to symptoms which more strongly correlated with
+a given disease. We chose to use a database of generic diseases produced by scraping PubMed (<a href="https://www.nature.com/articles/ncomms5212">Source</a>) and another which focused on rare diseases
+(<a href="https://www.orpha.net/consor/cgi-bin/index.php">Source</a>). Similarly, we found a database mapping genetic mutations to disease which we could use to compare to our patient data vector (<a href="http://www.disgenet.org/downloads">Source</a>).</p>
+
+<h3 id="computation">Computation</h3>
+
+<p><img style="padding:5px;" src="/img/projects/undiagnosed-1/tSNE.png" alt="idp" width="400px" align="right" /></p>
+
+<p>The most successful approach we found was to simply compute the projection of the patient data vector onto the reference database. This gave us
+a pseudo-correlation between patient symptoms or genetic mutations and diseases, which we could then sort to produce a ranked list of diagnoses.
+Another approach we took was to cluster the database of diseases and the unlabelled patient vector to see if the patient clustered with a
+related class of diseases. This approach was not easy to interpret but could be promising given more time to consider biases in the database
+itself.</p>
+
+<p>The genetic database proved particularly difficult to use due to strong biases in the database. Given more time, we would have considered different
+methods of normalizing the scores in the database to minimize this effect.</p>
+
+<h3 id="code">Code</h3>
+<p>The following is a sample of the code we used. For the complete script, please see our GitHub repository.</p>
+
+<p>First we define our databases. These are arrays with each row corresponding to a disease, each column corresponding to a symptom, and the element value indicating the correlation between the two.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">symptoms</span> <span class="o">=</span> <span class="n">read_pickle</span><span class="p">(</span><span class="n">fname_symptom</span><span class="p">)</span>
+<span class="n">diseases</span> <span class="o">=</span> <span class="n">read_pickle</span><span class="p">(</span><span class="n">fname_disease</span><span class="p">)</span>
+<span class="n">symptom_disease_arr</span> <span class="o">=</span> <span class="n">read_pickle</span><span class="p">(</span><span class="n">fname_arr</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Next we set up our patient vector. These are the MeSH terms we collected from the patient’s documented medical history.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">patient_symptoms_binary_vector</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">symptoms</span><span class="p">),))</span>
+<span class="n">patient_symptoms_manual</span> <span class="o">=</span> <span class="p">[</span><span class="s">'Body Weight'</span><span class="p">,</span> <span class="s">'Psychophysiologic Disorders'</span><span class="p">,</span> <span class="s">'Dyspepsia'</span><span class="p">,</span> <span class="s">'Cachexia'</span><span class="p">,</span> <span class="s">'Thinness'</span><span class="p">,</span> <span class="s">'Polyuria'</span><span class="p">,</span>
+                           <span class="s">'Vomiting'</span><span class="p">,</span> <span class="s">'Nausea'</span><span class="p">,</span> <span class="s">'Abdominal Pain'</span><span class="p">,</span> <span class="s">'Fatigue'</span><span class="p">,</span> <span class="s">'Constipation'</span><span class="p">,</span> <span class="s">'Urinary Bladder, Overactive'</span><span class="p">,</span>
+                           <span class="s">'Gastroparesis'</span><span class="p">]</span>
+<span class="n">extra_patient_symptoms</span>  <span class="o">=</span> <span class="p">[</span><span class="s">'Weight Loss'</span><span class="p">,</span> <span class="s">'Muscle Weakness'</span><span class="p">,</span> <span class="s">'Urinary Incontinence'</span><span class="p">,</span> <span class="s">'Muscle Spasticity'</span><span class="p">,</span> <span class="s">'Muscular Atrophy'</span><span class="p">,</span>
+                           <span class="s">'Neurologic Manifestations'</span><span class="p">,</span> <span class="s">'Body Weight changes'</span><span class="p">,</span> <span class="s">'Anorexia'</span><span class="p">,</span> <span class="s">'Hyperkinesis'</span><span class="p">,</span> <span class="s">'Vomiting, Anticipatory'</span><span class="p">,</span>
+                           <span class="s">'Emaciation'</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">symptom</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">symptoms</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">symptom</span> <span class="ow">in</span> <span class="n">patient_symptoms_manual</span><span class="p">:</span>
+        <span class="n">patient_symptoms_binary_vector</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
+</code></pre></div></div>
+
+<p>We found that normalization was essential for reducing inherent bias int eh database.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">(</span><span class="n">symptom_disease_arr</span><span class="p">)</span>
+
+<span class="n">n_disease</span> <span class="o">=</span> <span class="n">B</span><span class="p">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">n_symptom</span> <span class="o">=</span> <span class="n">B</span><span class="p">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="k">assert</span> <span class="n">B</span><span class="p">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">4219</span>
+
+<span class="n">row_sums</span> <span class="o">=</span> <span class="n">B</span><span class="p">.</span><span class="nb">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">B_norm</span> <span class="o">=</span> <span class="n">B</span> <span class="o">/</span> <span class="n">row_sums</span><span class="p">[:,</span> <span class="n">numpy</span><span class="p">.</span><span class="n">newaxis</span><span class="p">]</span>
+<span class="n">row_sums</span> <span class="o">=</span> <span class="n">B_norm</span><span class="p">.</span><span class="nb">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>The simplest prediction was to compute the projection of the patient vector onto the database (ie. compute the correlation matrix) and rank the diseases by this ‘score’.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">potential_diagnoses_1</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">dot</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">patient_symptoms_binary_vector</span><span class="p">)</span>
+<span class="n">sorted_potential_diagnoses_1</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">potential_diagnoses_1</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">"Potential diagnoses from patient symptom vector"</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'Rank %d'</span> <span class="o">%</span> <span class="n">idx</span><span class="p">,</span> <span class="n">diseases</span><span class="p">[</span><span class="n">sorted_potential_diagnoses_1</span><span class="p">[</span><span class="n">idx</span><span class="p">]],</span> <span class="n">potential_diagnoses_1</span><span class="p">[</span><span class="n">sorted_potential_diagnoses_1</span><span class="p">[</span><span class="n">idx</span><span class="p">]])</span>
+</code></pre></div></div>
+
+<p>Another approach was to perform unsupervised clustering via t-SNE to see which diseases the patient’s symptom vector clustered with. If the clusters are meaningful then the neighbouring points in the cluster would be most similar.
+We did not have enough time to refine this approach during the competition, but perhaps with some improvements we could get more meaningful clusters. Regardless, this is the code that we used:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">make_tsne_diagnosis</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">plot_fname</span><span class="p">,</span> <span class="n">patient_vector</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
+    <span class="c1"># Add patient to data as an unlabelled 'disease'
+</span>    <span class="n">labels</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="s">'Patient'</span><span class="p">)</span>
+    <span class="n">data</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">patient_vector</span><span class="p">)</span>
+
+    <span class="c1"># Perform PCA
+</span>    <span class="n">num_diseases</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">shape</span><span class="p">(</span><span class="n">data</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="c1"># Mean-center each feature
+</span>    <span class="n">feature_means</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">disease_idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_diseases</span><span class="p">):</span>
+        <span class="n">data</span><span class="p">[</span><span class="n">disease_idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">subtract</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">disease_idx</span><span class="p">],</span> <span class="n">feature_means</span><span class="p">)</span>
+    <span class="c1"># Get PCA-transformed data
+</span>    <span class="k">print</span><span class="p">(</span><span class="s">"PCA Transformation"</span><span class="p">)</span>
+    <span class="n">pca_vectors</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">50</span><span class="p">).</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="n">pca_transformed_data</span> <span class="o">=</span> <span class="n">pca_vectors</span><span class="p">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+    <span class="c1"># Perform tSNE
+</span>    <span class="n">tsne_embedded_symptoms</span> <span class="o">=</span> <span class="n">TSNE</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">).</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">pca_transformed_data</span><span class="p">)</span>
+
+    <span class="c1"># Get distance from patient point to each disease
+</span>    <span class="n">distances</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">shape</span><span class="p">(</span><span class="n">tsne_embedded_symptoms</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">distances</span><span class="p">.</span><span class="n">append</span><span class="p">([</span><span class="n">labels</span><span class="p">[</span><span class="n">d</span><span class="p">],</span> <span class="p">((</span><span class="n">tsne_embedded_symptoms</span><span class="p">[</span><span class="n">d</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">tsne_embedded_symptoms</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">tsne_embedded_symptoms</span><span class="p">[</span><span class="n">d</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">tsne_embedded_symptoms</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span><span class="p">])</span>
+
+    <span class="c1"># Rank diseases from nearest to farthest
+</span>    <span class="n">disease_rank</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">DataFrame</span><span class="p">.</span><span class="n">from_records</span><span class="p">(</span><span class="n">distances</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s">'Disease'</span><span class="p">,</span> <span class="s">'Distance'</span><span class="p">])</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">disease_rank</span><span class="p">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s">'Distance'</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="bp">False</span><span class="p">))</span>
+
+    <span class="c1"># Plot
+</span>    <span class="k">print</span><span class="p">(</span><span class="s">"Plotting"</span><span class="p">)</span>
+    <span class="n">plt</span><span class="p">.</span><span class="n">figure</span><span class="p">()</span>
+    <span class="n">plt</span><span class="p">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">tsne_embedded_symptoms</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">tsne_embedded_symptoms</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s">'.'</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">'green'</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.75</span><span class="p">)</span>
+    <span class="n">plt</span><span class="p">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">tsne_embedded_symptoms</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">tsne_embedded_symptoms</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s">'.'</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">'black'</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">plt</span><span class="p">.</span><span class="n">title</span><span class="p">(</span><span class="s">"tSNE plot of diseases based on symptoms"</span><span class="p">)</span>
+    <span class="n">plt</span><span class="p">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">plot_fname</span><span class="p">)</span>
+    <span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="c1"># Save tSNE embedding
+</span>    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n">getcwd</span><span class="p">(),</span> <span class="s">'patient'</span><span class="p">,</span> <span class="s">'patient_symptoms_v1_diagnosis.p'</span><span class="p">),</span> <span class="s">'wb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">pickle</span><span class="p">.</span><span class="n">dump</span><span class="p">(</span><span class="n">tsne_embedded_symptoms</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Overall, we learned a lot about handling incomplete data, coarse-graining for the sake of simplicity, and working under time pressure. It was a lot of fun, and we’re looking forward to our next hackathon!</p>
+:ET

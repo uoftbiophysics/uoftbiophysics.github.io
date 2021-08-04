@@ -1,0 +1,24 @@
+I"|
+<p>This is the text that will appear in the webpage, in Markdown.</p>
+
+<p>To create a project, just create a markdown file in the <code class="language-plaintext highlighter-rouge">_projects</code> folder. Here are the things you can put in the YAML frontmatter:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">title:</code> The project title.</li>
+  <li><code class="language-plaintext highlighter-rouge">notitle:</code> Set this to <code class="language-plaintext highlighter-rouge">true</code> if you don’t want a title displayed on the project card. Optional.</li>
+  <li><code class="language-plaintext highlighter-rouge">description:</code> The text shown in the project card. It supports markdown.</li>
+  <li><code class="language-plaintext highlighter-rouge">people:</code> The people working on the project. This is a list of keys from the <code class="language-plaintext highlighter-rouge">_data/people.yml</code> file.</li>
+  <li><code class="language-plaintext highlighter-rouge">layout: project</code> This sets the layout of the actual project page. It should be set to <code class="language-plaintext highlighter-rouge">project</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">image:</code> The URL of an image for the project. This is shown on both the project page and the project card. Optional.</li>
+  <li><code class="language-plaintext highlighter-rouge">last-updated:</code> Date in the format of <code class="language-plaintext highlighter-rouge">YYYY-MM-DD</code>. The project cards are sorted by this, most recent first.</li>
+  <li><code class="language-plaintext highlighter-rouge">status: inactive</code> Set this to <code class="language-plaintext highlighter-rouge">inactive</code> if don’t want the project to appear on the front page. Just ignore it otherwise.</li>
+  <li><code class="language-plaintext highlighter-rouge">link:</code> Set this to an external URL if this project has a page somewhere else on the web. If you don’t have a <code class="language-plaintext highlighter-rouge">link:</code>, then the content of this markdown file (below the YAML frontmatter) will be this project’s page.</li>
+  <li><code class="language-plaintext highlighter-rouge">no-link: true</code> Set this if you just don’t want a project page for your project.</li>
+</ul>
+
+<p>Links to github can be added like
+<a href="https://github.com/hlml-toronto/">this</a>.</p>
+
+<p>Adding images is as simple as using an html command for images, such as this: <img src="/img/posts/forking/nice-fork.jpg" alt="idp" width="400px" align="right" style="padding:5px;" />
+Try to keep a nice hierarchy of images in our img folder.</p>
+:ET
