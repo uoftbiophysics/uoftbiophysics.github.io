@@ -20,7 +20,7 @@ language: en
 
 titleBackground: "https://s3-us-west-2.amazonaws.com/webmaker-kits/learning%402x.jpg"
 headlineSmall: "Welcome to our website!"
-headlineMain: "INCLUDES"
+headlineMain: "DATES"
 logo: "img/logos/logo.png"
 
 # Setup Google Calendar
