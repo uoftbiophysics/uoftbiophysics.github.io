@@ -3,7 +3,7 @@ title: Contributing
 subtitle: Steps to contribute to uoftbiophysics repos (including this site).
 description: Joining our uoftbiophysics GitHub organization, forking repositories, and contributing code.
 layout: blog
-last-updated: 2021-08-01
+last-updated: 2021-8-1 # do NOT add 0 (such as 06 for June). Will break everything lol
 ---
 
 ### Submitting and reviewing articles
