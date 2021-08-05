@@ -2,4 +2,4 @@ client_secret.json
 _site/
 Gemfile
 Gemfile.lock
-.jekyll-serve/
+.jekyll-cache/
