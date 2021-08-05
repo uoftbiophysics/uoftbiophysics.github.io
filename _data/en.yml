@@ -6,15 +6,14 @@ tellMeMore: What is biophysics?
 activitiesSubheading: Much more than just the intersection of physics and biology
 activities:
   - title: Group
-    description:  We are a group of physics trainees at the University of Toronto who meet on weekly basis to learn new techniques and discuss recent topics in machine learning. Members take turns to teach new topics to the group, making the learning and teaching a collective process.
-      If you're interested in joining, feel free to contact us at <a href="mailto:hlml.toronto@gmail.com">hlml.toronto@gmail.com</a>. The group is open to all interested members of the UofT community.
+    description:  We are a group of physics trainees at the University of Toronto who work on various problems related to biophysics! What is biophysics? According to wikipedia: Biophysics is an interdisciplinary science that applies approaches and methods traditionally used in physics to study biological phenomena. Biophysics covers all scales of biological organization, from molecular to organismic and populations. Biophysical research shares significant overlap with biochemistry, molecular biology, physical chemistry, physiology, nanotechnology, bioengineering, computational biology, biomechanics, developmental biology and systems biology.  href="mailto:hlml.toronto@gmail.com">hlml.toronto@gmail.com</a>. The group is open to all interested members of the UofT community.
     icon: fa-group
   - title: Learning
-    description: Since the inception of the group, we've aimed to apply as much of what we learn into projects. They're instructive, fun and oftentimes comical...
-    icon: fa-comments-o
+    description: Phew... that was quite a mouthful! So what exactly do we do? Well, take a look at some posts below to find out. If you have inquiries, please contact <a href="mailto:NOTAREALEMAIL@gmail.com">NOTAREALEMAIL@gmail.com</a>
+    icon: fa-atom
   - title: Projects
-    description: Take a look at our <a href="https://github.com/hlml-toronto">GitHub</a> to see the types of projects we've worked on.
-    icon: fa-code
+    description: Take a look at our <a href="https://github.com/uoftbiophysics">GitHub</a> to see the types of projects we've worked on.
+    icon: fa-dna
 
 teamHeadline: Who We Are
 teamSubheading: "We're scientists, students and researchers who want to work with you!"

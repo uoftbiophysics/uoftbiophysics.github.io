@@ -34,7 +34,7 @@ To create a project, just create a markdown file in the `_projects` folder. Here
 - `no-link: true` Set this if you just don't want a project page for your project.
 
 Links to github can be added like
-[this](https://github.com/hlml-toronto/).
+[this](https://github.com/uoftbiophysics/).
 
 Adding images is as simple as using an html command for images, such as this: <img src="/img/posts/forking/nice-fork.jpg" alt="idp" width="400px" align="right" style="padding:5px;">
 Try to keep a nice hierarchy of images in our img folder.
