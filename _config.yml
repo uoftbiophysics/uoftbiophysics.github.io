@@ -19,19 +19,11 @@ language: en
 # None of these things need to be changed - but feel free!
 
 titleBackground: "https://s3-us-west-2.amazonaws.com/webmaker-kits/learning%402x.jpg"
-headlineSmall: "Welcome to our website for science advances!"
-headlineMain: "Theoretical Biophysics at the University of Toronto"
+headlineSmall: "Welcome to the website for theoretical biophysics at UofT!"
+headlineMain: "Coming Soon!"
 logo: "img/logos/UofT-logo.png"
 
 # Setup Google Calendar
-# Usage:
-# 1. create a new google account; set the calendar to 'public' (see https://support.google.com/calendar/answer/37083?hl=en on how to do this)
-# 2. change 'USER' in the example urls below to the username of the google account you made for your calendar
-# 3. set calendar_on: True.
-
-calendar_on: True
-calendar_embed_url: "https://calendar.google.com/calendar/embed?src=hlml.toronto%40gmail.com&ctz=America%2FToronto"
-calendar_ical_url: "https://calendar.google.com/calendar/ical/hlml.toronto%40gmail.com/public/basic.ics"
 
 # make pages for the _blog folder
 collections:

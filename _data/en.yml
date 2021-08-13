@@ -6,39 +6,20 @@ tellMeMore: What is biophysics?
 activitiesSubheading: Much more than just the intersection of physics and biology
 activities:
   - title: Group
-    description: We are a group of physics trainees at the University of Toronto who work on various problems related to biophysics! What is biophysics? According to wikipedia - Biophysics is an interdisciplinary science that applies approaches and methods traditionally used in physics to study biological phenomena. Biophysics covers all scales of biological organization, from molecular to organismic and populations. Biophysical research shares significant overlap with biochemistry, molecular biology, physical chemistry, physiology, nanotechnology, bioengineering, computational biology, biomechanics, developmental biology and systems biology. The group is open to all interested members of the UofT community.
+    description: We are a group of physics trainees at the University of Toronto who work on various problems related to biophysics! What is biophysics? According to Wikipedia - Biophysics is an interdisciplinary science that applies approaches and methods traditionally used in physics to study biological phenomena. Biophysics covers all scales of biological organization, from molecular to organismic and populations. Biophysical research shares significant overlap with biochemistry, molecular biology, physical chemistry, physiology, nanotechnology, bioengineering, computational biology, biomechanics, developmental biology and systems biology.
     icon: fa-group
   - title: Learning
-    description: Phew... that was quite a mouthful! So what exactly do we do? Well, take a look at some posts below to find out. If you have inquiries, please contact <a href="mailto:NOTAREALEMAIL@gmail.com">NOTAREALEMAIL@gmail.com</a>
-    icon: fa-atom
+    description: 
+    icon: fa-flask
   - title: Projects
     description: Take a look at our <a href="https://github.com/uoftbiophysics">GitHub</a> to see the types of projects we've worked on.
-    icon: fa-dna
+    icon: fa-code
 
 teamHeadline: Who We Are
 teamSubheading: "We're scientists, students and researchers who want to work with you!"
 interests: Interests
 
 codeOfConduct: Study Group Code of Conduct
-
-##### JR : This stuff is not currently used on the website. However, if we want
-#####     to implement some calendar and schedule of events... we can.
-events: Schedule
-eventsSubheading: Our upcoming and recent events
-eventPlaceholder: Nothing yet! Learn how to propose an event here.
-suggestEvent: Suggest an Event
-leadership: How To Schedule A Meeting
-pastEvents: See Our Past Events
-numberEvents: 8
-
-notification: Want to be notified of our upcoming events?
-watching: 'Head over to <a href="https://github.com/mozillascience/studyGroup">GitHub</a> and watch our repository, like this:'
-watchingCaption: 'Look in the top right-hand corner of <a href="%GITHUB_REPO_URL%">our repo</a>, and click "Watching." <br>You can undo this at any time in the same place.'
-
-calendar: Subscribe to our events calendar!
-calendarSubheading: 'We also invite you to follow <a href="%CALENDAR_EMBED_URL%" target="_blank">our calendar</a>, where events will be posted.'
-googleCalendar: 'If you use Google calendar, you can add our calendar by pressing the "Google Calendar" button at the bottom-right of <a href="%CALENDAR_EMBED_URL%" target="_blank">this page</a>.'
-iCal: 'If you use another calendar app, you can copy and paste <a href="%CALENDAR_ICAL_URL%">this address</a> into any calendar product that supports the iCal format.'
 
 sayHi: Come Say Hi
 contactSubheading: 'We use GitHub to get coding help, talk about events and share files. Join us there!'
