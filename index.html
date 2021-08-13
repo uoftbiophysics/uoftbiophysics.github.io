@@ -2,12 +2,14 @@
 layout: default
 ---
 
+<!-- Separate page with posts, if we want. -->
+
 <div class="home">
 
-  <h1>Posts</h1>
+  <h1>Post</h1>
 
-  <ul class="posts">
-    {% for post in site.posts %}
+  <ul class="post">
+    {% for post in site.blog %}
       <li>
         <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
         <a class="post-link" href="{{ site.github.url | replace:'http:','https:' }}/{{ post.url }}">{{ post.title }}</a>
