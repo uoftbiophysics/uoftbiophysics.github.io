@@ -59,6 +59,6 @@ Links to github can be added like
 
 Adding images is as simple as using an html command for images, such as this:
 
-<img src="/img/posts/Maturation_time/maturation_time.jpg" alt="idp" width="400px" align="center" style="padding:5px;">
+<img src="/img/posts/Maturation_time/mother_machine_timetrace.jpg" alt="idp" width="400px" align="center" style="padding:5px;">
 
 Try to keep a nice hierarchy of images in our img folder.
