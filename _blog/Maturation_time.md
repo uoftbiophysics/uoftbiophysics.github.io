@@ -5,8 +5,8 @@ subtitle: Using fluorescent maturation delays to infer gene expression dynamics 
 status: active 
 
 description: |
-  This blog post has a long title, with a subtitle.
-  Setting the `no-link` property means that there's no link.
+  Giants this stands on[^More] : M.~Elowitz ( [lab](https://www.elowitz.caltech.edu/)), P.~ Cluzel ([lab](https://cluzel.fas.harvard.edu/)), P.-S.~Laplace ([wiki](https://en.wikipedia.org/wiki/Pierre-Simon_Laplace)), D.~Prasher ([wiki](https://en.wikipedia.org/wiki/Douglas_Prasher))
+[^More]: and many many more of course!
 
 people: # add peope that are involved in this project
   - euan
