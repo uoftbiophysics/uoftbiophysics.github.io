@@ -1,11 +1,13 @@
 ---
 title: Here's an example of what a post looks like
 subtitle: Simplifying the posting and review of blog posts for everyone
-#status: inactive #active if you want it on the frontpage
+status: inactive 
+#active if you want it on the frontpage
 
 description: |
   This blog post has a long title, with a subtitle.
   Setting the `no-link` property means that there's no link.
+#Don't use colons in any titles
 
 people: # add peope that are involved in this project
   - jeremy
