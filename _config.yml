@@ -18,7 +18,7 @@ language: en
 # Optional Configuration
 # None of these things need to be changed - but feel free!
 
-titleBackground: "https://s3-us-west-2.amazonaws.com/webmaker-kits/learning%402x.jpg"
+titleBackground: '/img/brayden-blackboard-dark.jpg' #"https://s3-us-west-2.amazonaws.com/webmaker-kits/learning%402x.jpg"
 headlineSmall: "Welcome to our website for science advances!"
 headlineMain: "Theoretical Biophysics at the University of Toronto"
 logo: "img/logos/UofT-logo.png"
