@@ -6,13 +6,13 @@ subtitle: A story about the power of ``null models'' to shape how we interpret d
 category: paper
 
 description: |
-  A story about the power of ''null models'' to shape how we interpret data
+  A story about the power of ''null models'' to shape how we interpret data.
 
-people: # add peope that are involved in this project
+people: # add people that are involved in this project
   - maddy
 
 layout: blog # do not change this
-image: '/img/posts/why-null-modles-crispr/banfield_data_theory.svg'
+image: '/img/posts/why-null-models-crispr/banfield_data_theory.svg'
 #link:
 no-link: false # if you don't want it's own webpage
 last-updated: 2022-01-08
@@ -75,7 +75,7 @@ Amazingly, we found a strikingly broad spacer abundance distribution. The figure
 [^4]: How exactly does the randomness produce this broad distribution? In a nutshell, it happens because there are multiple random events all happening together. A random subset of bacteria acquire spacers at random times, and then the processes of bacterial growth and death (also random) magnify the initial randomness. Imagine two different spacer acquisition events: if one happens a little earlier than the other, the first bacterium has more time to produce offspring that also contain the spacer, and since they're growing exponentially, that initial head start can mean a large difference in abundance later. Mathematically, we found that these distributions were most broad if the spacer acquisition probability was low (but still the same for every spacer). If spacer acquisition rates are high across the board, the randomness of bacterial growth and death gets 'washed out' by many acquisitions of the same sequence, and the abundance distribution becomes more sharply peaked. The gory details are in the supplementary material of [our paper](https://www.pnas.org/content/115/32/E7462) ([direct PDF link](http://madeleinebonsma.com/wp-content/uploads/2018/07/Bonsma-Fisher_PNAS_2018.pdf)).
 
 <p align="center">
-<img src="/img/posts/why-null-models-crispr/banfield_data_theory.svg" alt="banfield_data_theory" width="600px" style="padding:5px;">
+<img src="/img/posts/why-null-models-crispr/banfield_data_theory.svg" alt="banfield_data_theory" width="800px" style="padding:5px;">
 </p>
 
 Does this mean that the study that found high correlation between replicates was wrong to conclude that acquisition was biased? Not at all, in fact their study demonstrates that beyond a doubt! But here's the very important catch: our work shows that if you observe a broad distribution by itself, you *cannot* conclude that biased acquisition is the cause, because we know you don't need that ingredient to get a similar result. These things are all true at once: spacer acquisition IS biased, biased acquisition CAN lead to broad abundance distributions, BUT observing a broad abundance distribution does not guarantee that acquisition is biased. 
