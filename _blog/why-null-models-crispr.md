@@ -1,6 +1,6 @@
 ---
 title: What's the point of a simple theory?
-subtitle: A story about the power of ``null models'' to shape how we interpret data
+subtitle: A story about the power of null models to shape how we interpret data
 #status: inactive #active if you want it on the frontpage
 
 category: paper
