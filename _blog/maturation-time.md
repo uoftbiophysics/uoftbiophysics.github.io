@@ -10,7 +10,6 @@ description: |
 
 people: # add peope that are involved in this project
   - euan
-  - jeremy
 
 layout: blog # do not change this
 image: '/img/posts/maturation-time/mother_machine_timetrace.jpg'

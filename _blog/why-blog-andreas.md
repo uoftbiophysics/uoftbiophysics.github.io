@@ -1,9 +1,9 @@
 ---
-title: Why we are starting a blog 
-subtitle: Isn't publishing papers enough? 
+title: Why we are starting a blog - Isn't publishing papers enough? 
+subtitle: 
 #status: inactive #active if you want it on the frontpage
 
-description: |
+description:  |
 
 
 people: # add peope that are involved in this project
