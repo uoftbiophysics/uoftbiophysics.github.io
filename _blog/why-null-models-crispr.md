@@ -12,7 +12,7 @@ people: # add peope that are involved in this project
   - maddy
 
 layout: blog # do not change this
-image: '/img/posts/maturation-time/mother_machine_timetrace.jpg'
+image: '/img/posts/why-null-modles-crispr/banfield_data_theory.svg'
 #link:
 no-link: false # if you don't want it's own webpage
 last-updated: 2022-01-08
@@ -51,7 +51,7 @@ Many different research groups have observed the same phenomenon: when bacteria 
 This figure shows the abundance of each spacer sequence in the experiment, and each colour is a different day in the 14-day experiment. Each sequence is sorted from most common to least common (left to right), and the y-axis shows the frequency of each sequence. For most days, the most common sequence at rank 1 has a frequency of $10^{-1} = 10\%$, and the least common sequences have frequencies around $10^{-5}$. 
 
 <p align="center">
-<img src="/img/posts/why-null-models-crispr/banfield_data.svg" alt="banfield_data" width="300px" style="padding:5px;">
+<img src="/img/posts/why-null-models-crispr/banfield_data.svg" alt="banfield_data" width="400px" style="padding:5px;">
 </p>
 
 This study also found that certain regions of the phage genome were more likely to be a source for spacers, and combined with this skewed abundance distribution, they concluded that the high-abundance spacers were special: their sequence makes them more likely to be high abundance. This sounds like a perfectly reasonable explanation, and it's supported by other experiments. Here’s a figure from a another paper that looked specifically at the process of spacer acquisition - they sequenced new spacers 24 hours after bacteria were infected by phages without leaving the bacteria lots of time to grow and die. They performed the same experiment twice (two 'replicates'), and this plot shows the frequency of spacer sequences in the first replicate versus the frequency of the same spacer sequences in the second replicate. The data points are strongly correlated: they fall on or near a straight diagonal line with slope 1. This means that if a spacer sequence was highly abundant in the first experiment, it is also generally highly abundant in the second experiment, suggesting that there is indeed something about the spacer itself that destines it for high or low abundance[^3]. 
@@ -59,7 +59,7 @@ This study also found that certain regions of the phage genome were more likely 
 [^3]: This [theory paper](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005486) included variable spacer effectiveness as an ingredient to get broad abundance distributions.
 
 <p align="center">
-<img src="/img/posts/why-null-models-crispr/Heler2019.svg" alt="Heler2019" width="300px" style="padding:5px;">
+<img src="/img/posts/why-null-models-crispr/Heler2019.svg" alt="Heler2019" width="450px" style="padding:5px;">
 </p>
 
 So we're done, right? We know why some spacers are highly abundant and others are not, and if we see a broad abundance distribution we know the cause. Or do we? Remember where we started: to figure out what's going on when we observe something, we have to rule out other explanations. Could there be other explanations for a spacer abundance distribution that looks like this? 
@@ -67,12 +67,12 @@ So we're done, right? We know why some spacers are highly abundant and others ar
 Enter our null model. We modelled bacteria and phage interacting with CRISPR, and we included absolutely no distinguishing features for individual spacers: all spacers were equally likely to be acquired and all spacers were equally effective at preventing infection. This is the most boring model possible that still includes the bare bones of CRISPR immunity. We simulated this population over time, watching bacteria grow, die, and acquire spacer sequences randomly. If a bacterium had a spacer when it was infected, it got a CRISPR immune boost and was more likely to survive.
 
 <p align="center">
-<img src="/img/posts/why-null-models-crispr/model_diagram_simplified.png" alt="model" width="500px" style="padding:5px;">
+<img src="/img/posts/why-null-models-crispr/model_diagram_simplified.png" alt="model" width="800px" style="padding:5px;">
 </p>
 
 Amazingly, we found a strikingly broad spacer abundance distribution. The figure below compares experimental data on the left and our simulation data on the right. Our null model shows that you don't need special spacer sequences to find that some are very common and some are rare: you can get large differences in abundance purely because of randomness[^4].
 
-[^4]: How exactly does the randomness produce this broad distribution? In a nutshell, it happens because there are multiple random events all happening together. A random subset of bacteria acquire spacers at random times, and then the processes of bacterial growth and death (also random) magnify the initial randomness. Imagine two different spacer acquisition events: if one happens a little earlier than the other, the first bacterium has more time to produce offspring that also contain the spacer, and since they're growing exponentially, that initial head start can mean a large difference in abundance later. Mathematically, we found that these distributions were most broad if the spacer acquisition probability was low (but still the same for every spacer). If spacer acquisition rates are high across the board, the randomness of bacterial growth and death gets 'washed out' by many acquisitions of the same sequence, and the abundance distribution becomes more sharply peaked. The gory details are in the supplementary material of [our paper](https://www.pnas.org/content/115/32/E7462) ([direct PDF link](http://madeleinebonsma.com/wp-content/uploads/2018/07/Bonsma-Fisher_PNAS_2018.pdf))
+[^4]: How exactly does the randomness produce this broad distribution? In a nutshell, it happens because there are multiple random events all happening together. A random subset of bacteria acquire spacers at random times, and then the processes of bacterial growth and death (also random) magnify the initial randomness. Imagine two different spacer acquisition events: if one happens a little earlier than the other, the first bacterium has more time to produce offspring that also contain the spacer, and since they're growing exponentially, that initial head start can mean a large difference in abundance later. Mathematically, we found that these distributions were most broad if the spacer acquisition probability was low (but still the same for every spacer). If spacer acquisition rates are high across the board, the randomness of bacterial growth and death gets 'washed out' by many acquisitions of the same sequence, and the abundance distribution becomes more sharply peaked. The gory details are in the supplementary material of [our paper](https://www.pnas.org/content/115/32/E7462) ([direct PDF link](http://madeleinebonsma.com/wp-content/uploads/2018/07/Bonsma-Fisher_PNAS_2018.pdf)).
 
 <p align="center">
 <img src="/img/posts/why-null-models-crispr/banfield_data_theory.svg" alt="banfield_data_theory" width="600px" style="padding:5px;">
