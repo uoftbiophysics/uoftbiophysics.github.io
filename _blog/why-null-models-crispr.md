@@ -6,7 +6,7 @@ subtitle: A story about the power of ``null models'' to shape how we interpret d
 category: paper
 
 description: |
-  A story about the power of ''null models'' to shape how we interpret data.
+  A story about the power of null models to shape how we interpret data.
 
 people: # add people that are involved in this project
   - maddy
