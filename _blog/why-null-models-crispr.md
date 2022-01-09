@@ -48,7 +48,7 @@ Bacteria with a CRISPR immune system can store a memory of past phage infections
 
 Many different research groups have observed the same phenomenon: when bacteria use their CRISPR immune system, some spacers end up being a lot more common in the population than others. A *lot* more common: in the data we analyzed for this project, the most common spacer sequence was *ten thousand* times more common than the least common sequence. Distributions like this are often called ''long-tailed'' because in a histogram the data is smeared out for a long way on one or both sides: a long tail.
 
-This figure shows the abundance of each spacer sequence in the experiment, and each colour is a different day in the 14-day experiment. Each sequence is sorted from most common to least common (left to right), and the y-axis shows the frequency of each sequence. For most days, the most common sequence at rank 1 has a frequency of $10^{-1} = 10\%$, and the least common sequences have frequencies around $10^{-5}$. 
+This figure shows the abundance of each spacer sequence in the experiment, and each colour is a different day in the 14-day experiment. Each sequence is sorted from most common to least common (left to right), and the y-axis shows the frequency of each sequence. For most days, the most common sequence at rank 1 has a frequency of 10<sup>-1</sup> = 10%, and the least common sequences have frequencies around 10<sup>-5</sup>.
 
 <p align="center">
 <img src="/img/posts/why-null-models-crispr/banfield_data.svg" alt="banfield_data" width="400px" style="padding:5px;">
