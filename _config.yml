@@ -94,8 +94,8 @@ blog_description: Theoretical Biophysics at the University of Toronto
 permalink: /blog/:year/:title/
 
 # Pagination
-pagination:
-  enabled: true
+paginate: 5
+paginate_path: "/page:num/"
 
 # Comments
 disqus_shortname: al-folio # put your disqus shortname
@@ -163,7 +163,7 @@ plugins:
   - jekyll-feed
   - jekyll-imagemagick
   - jekyll-minifier
-  - jekyll-paginate-v2
+  - jekyll-paginate
   - jekyll/scholar
   - jekyll-sitemap
   - jekyll-target-blank
