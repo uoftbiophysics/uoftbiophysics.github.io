@@ -7,6 +7,4 @@ nav: true
 nav_order: 1
 ---
 
-For now, this page is assumed to be a static description of your courses. You can convert it to a collection similar to `_projects/` so that you can have a dedicated page for each course.
-
-Organize your courses by years, topics, or universities, however you like!
+The main driver of this project is Andreas Hilfinger (<andreas.hilfinger@utoronto.ca>), please feel free to contact him with any questions or requests.
