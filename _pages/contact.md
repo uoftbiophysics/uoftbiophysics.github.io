@@ -7,4 +7,4 @@ nav: true
 nav_order: 1
 ---
 
-The main driver of this project is Andreas Hilfinger (<andreas.hilfinger@utoronto.ca>), please feel free to contact him with any questions or requests.
+The main driver of this project is Andreas Hilfinger (<andreas.hilfinger@utoronto.ca>), please feel free to contact him with any questions or requests. a
