@@ -91,7 +91,7 @@ bing_site_verification:  # out your bing-site-verification ID (Bing Webmaster)
 blog_name: the biophysics log # blog_name will be displayed in your blog page
 blog_nav_title: # your blog must have a title for it to be displayed in the nav bar
 blog_description: Theoretical Biophysics at the University of Toronto
-permalink: /:year/:title/
+permalink: /blog/:year/:title/
 
 # Pagination
 pagination:
@@ -119,6 +119,7 @@ collections:
   projects:
     output: true
     permalink: /projects/:path/
+
 
 news_scrollable: true # adds a vertical scroll bar if there are more than 3 news items
 news_limit: 5 # leave blank to include all the news in the `_news` folder
@@ -173,6 +174,10 @@ plugins:
 defaults:
   - scope:
       path: "assets/**/*.*"
+    values:
+      sitemap: false
+  - scope:
+      path: img/**/*.*"
     values:
       sitemap: false
 

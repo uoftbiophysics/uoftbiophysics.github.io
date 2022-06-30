@@ -57,7 +57,7 @@ For 60 years since the [1940s](https://en.wikipedia.org/wiki/Luria%E2%80%93Delbr
 Bacteria with a CRISPR immune system can store a memory of past phage infections by cutting out small pieces of phage DNA and inserting these pieces in their own genome. The phage DNA mugshots are (unhelpfully) called *spacers*, and bacteria use them to recognize and bind to the DNA of phages that they've seen before, then neatly snip the phage DNA at that spot<d-footnote>This part of CRISPR immunity, the ability of CRISPR to cut DNA in a particular spot determined by what matches a spacer, has fueled a massive revolution in genome editing. The hard part of DNA editing is making an accurate cut, and up until the 2010s this was done by painstakingly engineering a particular protein for each edit. But when researchers Jennifer Doudna and Emmanuelle Charpentier were studying the CRISPR immune system, they realized that they could give the CRISPR-associated (Cas) proteins any DNA sequence they wanted instead of phage-derived spacers and that it would then make a precise DNA cut at the exact place they wanted. The pair received the <a href="https://www.nature.com/articles/d41586-020-02765-9">2020 Nobel Prize in Chemistry</a> for their discovery.</d-footnote>, making the phage DNA useless and preventing the infection from proceeding. The important concepts to remember as we go on are that CRISPR immunity works through bacteria acquiring *spacers*, and that because spacers are stored in the genome, bacteria pass on their immunity to all their descendants as well.
 
 <figure>
-<img src="/img/posts/why-null-models-crispr/CRISPR_diagram_v3.svg" alt="crispr_diagram" width="600px" style="padding:5px;">
+<img src="/assets/img/posts/why-null-models-crispr/CRISPR_diagram_v3.svg" alt="crispr_diagram" width="600px" style="padding:5px;">
   <figcaption>A diagram of the CRISPR system.</figcaption>
 </figure>
 
@@ -68,7 +68,7 @@ Many different research groups have observed that when bacteria use their CRISPR
 This figure shows the abundance of each spacer sequence in the experiment, and each colour is a different day in the 14-day experiment. Each sequence is sorted from most common to least common (left to right) on the x-axis, and the y-axis shows the frequency of each sequence. For most days, the most common sequence at rank 1 has a frequency of 10<sup>-1</sup> = 10%, and the least common sequences have frequencies around 10<sup>-5</sup>.
 
 <figure>
-<img src="/img/posts/why-null-models-crispr/banfield_data.svg" alt="banfield_data" width="400px" style="padding:5px;">
+<img src="/assets/img/posts/why-null-models-crispr/banfield_data.svg" alt="banfield_data" width="400px" style="padding:5px;">
   <figcaption>Spacer abundance distribution over 14 days, colours indicate different days. Data is from Paez-Espino et al.</figcaption>
 </figure>
 
@@ -77,7 +77,7 @@ What can we learn from a spacer abundance distribution that looks like this? Doe
 Experiments can chip away at the first question. In the original study, they found in addition to this broad distribution that certain regions of the phage genome were more likely to be a source for spacers. Based on this, they concluded that the high-abundance spacers were special: their sequence makes them more likely to be high abundance. That's one piece of evidence that spacer sequences matter, and it's supported by other experiments. Here’s a figure from another experiment<d-cite key="heler2019spacer"></d-cite> that looked specifically at the process of spacer acquisition - they infected a population of bacteria with phages, then sequenced new spacers 24 hours later without leaving the bacteria lots of time to grow and die. They performed the same experiment twice (two 'replicates'), and this plot shows the frequency of spacer sequences in the first replicate versus the frequency of the same spacer sequences in the second replicate. The data points are strongly correlated: they fall on or near a straight diagonal line with slope 1. This means that if a spacer sequence was highly abundant in the first experiment, it is also generally highly abundant in the second experiment, suggesting that there is indeed something about the spacer itself that destines it for high or low abundance<d-footnote>This <a href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005486">theory paper</a> included variable spacer effectiveness as an ingredient to get broad abundance distributions<d-cite key="bradde2017dynamics"></d-cite></d-footnote>.
 
 <figure>
-<img src="/img/posts/why-null-models-crispr/Heler2019.svg" alt="Heler2019" width="450px" style="padding:5px;">
+<img src="/assets/img/posts/why-null-models-crispr/Heler2019.svg" alt="Heler2019" width="450px" style="padding:5px;">
   <figcaption>Spacer abundance in replicate 1 vs. spacer abundance in replicate 2. Figure reproduced from Figure 1c of Heler et al.</figcaption>
 </figure>
 
@@ -86,14 +86,14 @@ So we're done, right? We know why some spacers are highly abundant and others ar
 Enter our null model. We modelled bacteria and phage interacting with CRISPR, and we included absolutely no distinguishing features for individual spacers: all spacers were equally likely to be acquired and all spacers were equally effective at preventing infection. This is the most boring model possible that still includes the bare bones of CRISPR immunity. We simulated this population over time, watching bacteria grow, die, and acquire spacer sequences randomly. If a bacterium had a spacer when it was infected, it got a CRISPR immune boost and was more likely to survive.
 
 <figure>
-<img src="/img/posts/why-null-models-crispr/model_diagram_simplified.png" alt="model" width="800px" style="padding:5px;">
+<img src="/assets/img/posts/why-null-models-crispr/model_diagram_simplified.png" alt="model" width="800px" style="padding:5px;">
   <figcaption>A diagram of our theoretical model. We keep track of the total number of phages and bacteria, and also the identity of the spacer sequence that each bacteria has (represented by colour). If a bacterium interacts with a phage, the phage can either kill it and create a burst of new phages, or the bacterium can survive. If it survives, it can gain a spacer with a low probability. If a bacterium already has a spacer when the phage attacks, the bacterium is immune and the phage is very unlikely to kill it.</figcaption>
 </figure>
 
 Amazingly, we found a strikingly broad spacer abundance distribution, with the most common spacers ten thousand times more common than the least common spacers. The figure below compares experimental data on the left and our simulation data on the right. Our null model shows that you don't need special spacer sequences to find that some are very common and some are rare: you can get large differences in abundance purely because of randomness<d-footnote>How exactly does the randomness produce this broad distribution? In a nutshell, it happens because there are multiple random events all happening together. A random subset of bacteria acquire spacers at random times, and then the processes of bacterial growth and death (also random) magnify the initial randomness. Imagine two different spacer acquisition events: if one happens a little earlier than the other, the first bacterium has more time to produce offspring that also contain the spacer, and since they're growing exponentially, that initial head start can mean a large difference in abundance later. Mathematically, we found that these distributions were most broad if the spacer acquisition probability was low (but still the same for every spacer). If spacer acquisition rates are high across the board, the randomness of bacterial growth and death gets 'washed out' by many acquisitions of the same sequence, and the abundance distribution becomes more sharply peaked. The gory details are in the supplementary material of <a href="https://www.pnas.org/content/115/32/E7462">our paper</a><d-cite key="bonsma2018adaptive"></d-cite>(<a href="http://madeleinebonsma.com/wp-content/uploads/2018/07/Bonsma-Fisher_PNAS_2018.pdf">direct PDF link to paper</a>)</d-footnote>.
 
 <figure>
-  <img src="/img/posts/why-null-models-crispr/banfield_data_theory.svg" alt="banfield_data_theory" width="800px" style="padding:5px;"/>
+  <img src="/assets/img/posts/why-null-models-crispr/banfield_data_theory.svg" alt="banfield_data_theory" width="800px" style="padding:5px;"/>
   <figcaption>Spacer abundance distributions for data from Paez-Espino et al.[^a] (left) and from our simulations (right).</figcaption>
 </figure>
 
