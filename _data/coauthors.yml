@@ -1,0 +1,35 @@
+andreas:
+    display_name: "Andreas Hilfinger"
+    role: Assistant Professor
+    #image:
+    github: andreashilfinger
+
+euan:
+    display_name: "Euan Joly-Smith"
+    role: Physics Ph.D. Candidate
+    #image:
+    github: ejolysmith
+
+maddy:
+    display_name: "Madeleine Bonsma-Fisher"
+    role: Physics Ph.D. Candidate
+    #image:
+    github: mbonsma
+
+nava:
+    display_name: "Nava Leibovich"
+    role: Physics Post-Doc.
+    #image:
+    github: NavaLeib
+
+matt:
+    display_name: "Matthew Smart"
+    role: Physics Ph.D. Candidate
+    #image:
+    github: mattsmart
+
+jeremy:
+    display_name: "Jeremy Rothschild"
+    role: Physics Ph.D. Candidate
+    #image:
+    github: jbRothschild
