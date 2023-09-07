@@ -49,7 +49,7 @@ M. Elowitz ([lab](https://www.elowitz.caltech.edu/)), P. Cluzel ([lab](https://c
 ## Fluorescence
 
 <img src="/assets/img/posts/maturation-time/FPs.jpg" alt="idp" width="250px" align="right" style="padding:15px;">
-Fluorescent proteins are an invaluable tool used to visualize cellular processes (Exibit A: Nobel Prixes in 2008([Exhibit A: Nobel Prizes 2008](https://www.nobelprize.org/prizes/chemistry/2008/illustrated-information/), [Exhibit B: Nobel Prize 2014](https://www.nobelprize.org/prizes/chemistry/2014/summary/), [Exhibit C: This mind-blowing video of a brain](https://www.youtube.com/watch?v=c-NMfp13Uug)).
+Fluorescent proteins are an invaluable tool used to visualize cellular processes ([Exhibit A: Nobel Prizes 2008](https://www.nobelprize.org/prizes/chemistry/2008/illustrated-information/), [Exhibit B: Nobel Prize 2014](https://www.nobelprize.org/prizes/chemistry/2014/summary/), [Exhibit C: This mind-blowing video of a brain](https://www.youtube.com/watch?v=c-NMfp13Uug)).
 An important caveat when using fluorescent proteins is that freshly produced proteins are dark and take time before they fluoresce. The time that a fluorescent protein takes to become fluorescent is called the maturation time, and it can range from minutes to hours<d-footnote>This is a fascinating and complex process in itself<d-cite key="blum2009single"></d-cite></d-footnote>. Fluorescent proteins with short maturation times are thus used to avoid delays when probing dynamic systems<d-footnote>The figure on the right is taken from this great [post](http://book.bionumbers.org/what-is-the-maturation-time-for-fluorescent-proteins/) on fluorescent maturation times.</d-footnote>.
 
 
